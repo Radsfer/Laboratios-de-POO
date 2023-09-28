@@ -1,0 +1,6 @@
+# Ignorar executáveis C++
+*.out
+*.exe
+
+# Ignorar arquivos .class do Java
+*.class
