@@ -64,7 +64,7 @@ public:
     float calcularTotal()
     {
         float total = 0.0;
-        for (const auto &pedido : pedidos)
+        for (auto &pedido : pedidos)
         {
             total += pedido->getValor();
         }
@@ -109,7 +109,7 @@ int main()
             cout << "Endereço: ";
             getline(cin, endereco);
 
-            // Verifique se já existe um cliente com o mesmo nome ou telefone
+            
             bool clienteExistente = false;
             for (auto &cliente : clientes)
             {
