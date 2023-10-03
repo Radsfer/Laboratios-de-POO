@@ -10,7 +10,7 @@ private:
     std::string nome;
     std::string endereco;
     std::string numeroTelefone;
-    std::vector<Pedido*> pedidos;
+    std::vector<Pedido> pedidos;
 
 public:
     Cliente(const std::string& nome, const std::string& endereco, const std::string& numeroTelefone)
@@ -19,7 +19,7 @@ public:
     const std::string& getNome() const { return nome; }
     const std::string& getNumeroTelefone() const { return numeroTelefone; }
 
-    void cadastrarPedido(Pedido* pedido) { pedidos.push_back(pedido); }
+    void cadastrarPedido(Pedido& pedido) { pedidos.push_back(pedido); }
     void listarPedidos() const;
     double calcularTotalGasto() const;
 };
@@ -44,9 +44,9 @@ public:
 void Cliente::listarPedidos() const {
     std::cout << "Pedidos de " << nome << ":\n";
     for (const auto& pedido : pedidos) {
-        std::cout << "Número do Pedido: " << pedido->getNumeroPedido() << "\n";
-        std::cout << "Descrição: " << pedido->getDescricao() << "\n";
-        std::cout << "Valor Total: " << pedido->getValorTotal() << "\n";
+        std::cout << "Número do Pedido: " << pedido.getNumeroPedido() << "\n";
+        std::cout << "Descrição: " << pedido.getDescricao() << "\n";
+        std::cout << "Valor Total: " << pedido.getValorTotal() << "\n";
         std::cout << "------------------------\n";
     }
 }
@@ -54,7 +54,7 @@ void Cliente::listarPedidos() const {
 double Cliente::calcularTotalGasto() const {
     double total = 0.0;
     for (const auto& pedido : pedidos) {
-        total += pedido->getValorTotal();
+        total += pedido.getValorTotal();
     }
     return total;
 }
@@ -115,7 +115,7 @@ int main() {
 
                 if (cliente) {
                     pedidos.emplace_back(numeroPedido, descricao, valorTotal, cliente);
-                    cliente->cadastrarPedido(&pedidos.back());
+                    cliente->cadastrarPedido(pedidos.back());
                 } else {
                     std::cout << "Cliente não encontrado. Cadastre o cliente primeiro.\n";
                 }
