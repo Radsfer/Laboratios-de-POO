@@ -2,8 +2,9 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class main {
-    public static void main (String[] args) {
+public class AppBiblioteca {
+
+    public static void main () {
         Scanner scanner = new Scanner(System.in);
         Biblioteca biblioteca = new Biblioteca();
 

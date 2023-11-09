@@ -5,26 +5,26 @@
 
 class Triangulo {
 private:
-    float lado_a;
-    float lado_b;
-    float lado_c;
-    static int contador;
+    double lado_a;
+    double lado_b;
+    double lado_c;
+    static double contador;
 public:
     Triangulo();
-    Triangulo(float lado_a, float lado_b, float lado_c);
+    Triangulo(double lado_a, double lado_b, double lado_c);
    
-    static int getContador();
+    static double getContador();
     void verificarTipoTriangulo();
     
     
-    float getLadoA();
-    void setLadoA(float lado_a);
+    double getLadoA();
+    void setLadoA(double lado_a);
 
-    float getLadoB();
-    void setLadoB(float lado_b);
+    double getLadoB();
+    void setLadoB(double lado_b);
 
-    float getLadoC();
-    void setLadoC(float lado_c);
+    double getLadoC();
+    void setLadoC(double lado_c);
 
 
 };

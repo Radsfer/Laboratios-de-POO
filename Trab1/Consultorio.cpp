@@ -93,7 +93,7 @@ void Consultorio::cadastrarPaciente(Paciente p)
 };
 void Consultorio::excluirConsultasDoPaciente(string cpfPaciente)
 {
-    for (int i = 0; i < consultas.size();i++)
+    for (int i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getCpfPaciente() == cpfPaciente)
         {
@@ -101,7 +101,6 @@ void Consultorio::excluirConsultasDoPaciente(string cpfPaciente)
         }
     }
 }
-
 
 void Consultorio::removerPaciente(string cpf)
 {
@@ -149,7 +148,7 @@ void Consultorio::cadastrarMedico(Medico m)
 
 void Consultorio::excluirConsultasDoMedico(int crmMedico)
 {
-    for (int i = 0; i < consultas.size();i++)
+    for (int i = 0; i < consultas.size(); i++)
     {
         if (consultas[i].getCrmMedico() == crmMedico)
         {
@@ -323,7 +322,8 @@ void Consultorio::procurarConsulta(string cpfPaciente)
                 temConsultas = true;
             }
         }
-        cout << !temConsultas ? "Não tem consultas marcadas ainda!\n" : "";
+        cout << (!(temConsultas) ? "Não tem consultas marcadas ainda!\n" : "") << endl;
+
     }
     else if (opcao == 2)
     {
@@ -400,7 +400,7 @@ void Consultorio::listarMedicosEspecialistas(string especialidade)
                     temConsultas = true;
                 }
             }
-            cout << !temConsultas ? "Não tem consultas marcadas ainda!\n" : "";
+            cout << (!(temConsultas) ? "Não tem consultas marcadas ainda!\n" : "" )<<endl;
             cout << "--------------------------------" << endl;
         }
     }

@@ -2,19 +2,20 @@
 #include <cmath>
 #include <iostream>
 
+using namespace std;
 
 
-int Triangulo::contador = 0;
+double Triangulo::contador = 0.0;
 
 Triangulo::Triangulo() {
-    lado_a = 1;
-    lado_b = 1;
-    lado_c = 1;
+    lado_a = 1.0;
+    lado_b = 1.0;
+    lado_c = 1.0;
     contador++;
 
 }
 
-Triangulo::Triangulo(float lado_a, float lado_b, float lado_c) {
+Triangulo::Triangulo(double lado_a, double lado_b, double lado_c) {
     this->lado_a = lado_a;
     this->lado_b = lado_b;
     this->lado_c = lado_c;
@@ -50,30 +51,30 @@ void Triangulo::verificarTipoTriangulo(){
     }
 }
 
-float Triangulo::getLadoA() {
+double Triangulo::getLadoA() {
     return lado_a;
 }
 
-void Triangulo::setLadoA(float lado_a) {
+void Triangulo::setLadoA(double lado_a) {
     this->lado_a = lado_a;
 }
 
-float Triangulo::getLadoB() {
+double Triangulo::getLadoB() {
     return lado_b;
 }
 
-void Triangulo::setLadoB(float lado_b) {
+void Triangulo::setLadoB(double lado_b) {
     this->lado_b = lado_b;
 }
 
-float Triangulo::getLadoC() {
+double Triangulo::getLadoC() {
     return lado_c;
 }
 
-void Triangulo::setLadoC(float lado_c) {
+void Triangulo::setLadoC(double lado_c) {
     this->lado_c = lado_c;
 }
 
-int Triangulo::getContador() {
+double Triangulo::getContador() {
     return contador;
 }
