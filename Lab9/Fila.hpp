@@ -1,23 +1,18 @@
 #ifndef __FILA_H__
 #define __FILA_H__
+#include <iostream>
+#pragma once
+
 template <typename T>
-class Fila{
-    protected:
-    struct Node{
-        T object;
-        Node* next;
-        Node(const T& objt): object(objt), next(nullptr){};
-    };
-    Node* front;
-    Node* rear;
-    public:
-    Fila();
-    virtual ~Fila();    
-    bool isEmpty();
-    virtual void enqueue (T& objt);
-    virtual void enqueuePriority(bool prioritary,T& objt);
-    virtual T dequeue();
-    T printQueue();
-    int sizeQueue();
+class Fila
+{
+public:
+    virtual bool isEmpty() const = 0;
+    virtual void enqueue(T &objt) = 0;
+    virtual T dequeue() = 0;
+    virtual void printQueue() const = 0;
+    virtual int sizeQueue() const = 0;
+    virtual void enqueuePriority(bool prioritary, T &objt) = 0;
+    virtual ~Fila() {}
 };
 #endif // __FILA_H__

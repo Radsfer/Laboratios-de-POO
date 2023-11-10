@@ -7,7 +7,7 @@ class Pessoa
         std::string nome;
         std::string cpf;
     public:
-        Pessoa(std::string nome,std::string cpf);
+        Pessoa(std::string nome,std::string cpf): nome(nome), cpf(cpf){};
         virtual ~Pessoa();
         std::string getNome();
         std::string getCpf();
