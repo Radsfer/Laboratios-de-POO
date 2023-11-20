@@ -13,24 +13,26 @@ int main()
     Consultorio consultorio;
     Paciente pacienteNulo = Paciente();
     int opcao;
-    // Habib essa parte é para auxiliar nos testes de forma mais rapida como foi dito no relatório
-     Medico medico1 = Medico(Pessoa("Dr. João", 'M', "Rua A", "12345678901", 12345, 1), 123, "Cardiologia");
-     Medico medico2 = Medico(Pessoa("Dra. Maria", 'F', "Rua B", "98765432109", 54321, 2), 321, "Ortopedia");
+    // Habib pra facilitar nos testes de remover medico e paciente pra testar aparecer o erro. 
+    // Para o erro do setSexo precisa utilizar qualquer um dos dois metodos de cadastrar paciente ou medito pois eles tem o
+    // metodo cadastrarPessoa como base para lançar o erro.
+    //  Medico medico1 = Medico(Pessoa("Dr. João", 'M', "Rua A", "12345678901", 12345, 1), 123, "Cardiologia");
+    //  Medico medico2 = Medico(Pessoa("Dra. Maria", 'F', "Rua B", "98765432109", 54321, 2), 321, "Ortopedia");
 
-    Paciente paciente1 = Paciente(Pessoa("João da Silva", 'M', "Rua X", "11122233344", 9999, 1234), "Dor de cabeça", "Aspirina");
-    Paciente paciente2 = Paciente(Pessoa("Maria da Silva", 'F', "Rua Y", "44433322211", 8888, 4321), "Dor nas costas", "Relaxante muscular");
+    // Paciente paciente1 = Paciente(Pessoa("João da Silva", 'M', "Rua X", "11122233344", 9999, 1234), "Dor de cabeça", "Aspirina");
+    // Paciente paciente2 = Paciente(Pessoa("Maria da Silva", 'F', "Rua Y", "44433322211", 8888, 4321), "Dor nas costas", "Relaxante muscular");
 
-    Consulta consulta1 = Consulta("10/10/2023", "10:00", paciente1.getCpf(), medico1.getCrm());
-    Consulta consulta2 = Consulta("11/10/2023", "11:00", paciente2.getCpf(), medico2.getCrm());
-    Consulta consulta3 = Consulta("10/10/2023", "12:00", paciente1.getCpf(), medico1.getCrm());
+    // Consulta consulta1 = Consulta("10/10/2023", "10:00", paciente1.getCpf(), medico1.getCrm());
+    // Consulta consulta2 = Consulta("11/10/2023", "11:00", paciente2.getCpf(), medico2.getCrm());
+    // Consulta consulta3 = Consulta("10/10/2023", "12:00", paciente1.getCpf(), medico1.getCrm());
 
-    consultorio.cadastrarMedico(medico1);
-    consultorio.cadastrarMedico(medico2);
-    consultorio.cadastrarPaciente(paciente1);
-    consultorio.cadastrarPaciente(paciente2);
-    consultorio.cadastrarConsulta(consulta1);
-    consultorio.cadastrarConsulta(consulta2);
-    consultorio.cadastrarConsulta(consulta3);
+    // consultorio.cadastrarMedico(medico1);
+    // consultorio.cadastrarMedico(medico2);
+    // consultorio.cadastrarPaciente(paciente1);
+    // consultorio.cadastrarPaciente(paciente2);
+    // consultorio.cadastrarConsulta(consulta1);
+    // consultorio.cadastrarConsulta(consulta2);
+    // consultorio.cadastrarConsulta(consulta3);
 
     do
     {
@@ -62,7 +64,12 @@ int main()
             Pessoa cadastroPessoa = consultorio.cadastrarPessoa();
             cout << "Digite o CRM: ";
             cin >> crmMedico;
-
+            cin.ignore();
+            cout<< "Digite a especialidade do médico: ";
+            getline(cin, especialidadeMedico);
+            Medico novoMedico=Medico(cadastroPessoa,crmMedico,especialidadeMedico);
+            consultorio.cadastrarMedico(novoMedico);
+            break;
 
         }
         case 2:

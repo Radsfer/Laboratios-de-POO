@@ -34,13 +34,13 @@ Pessoa Consultorio::cadastrarPessoa()
             cin.ignore();
 
 
-            novaPessoa.setSexo(sexo); // Isso lançará ExcecaoSexoInvalido se o sexo não for válido
+            novaPessoa.setSexo(sexo); 
 
             break;
         }
         catch (const ExcecaoSexoInvalido &e)
         {
-            // Capturar a exceção e exibir a mensagem de erro
+        
             cerr << "Erro: " << e.what() << endl;
         }
     } while (true);
@@ -114,7 +114,6 @@ void Consultorio::removerPaciente(string cpf)
     }
     if (!deletado)
     {
-        // Lança a exceção se o paciente não for encontrado
         throw ExcecaoPacienteInexistente();
     }
 }
@@ -170,7 +169,6 @@ void Consultorio::removerMedico(int crm)
     }
     if (!removido)
     {
-        // Lança a exceção se o médico não for encontrado
         throw ExcecaoMedicoInexistente();
     }
 };
@@ -189,7 +187,6 @@ void Consultorio::cadastrarConsulta(Consulta c)
     {
         if (consultas[i].getData() == verificarData && consultas[i].getHora() == verificarHora)
         {
-            // Verificar se a data e hora já estão ocupadas
             medicoOcupado = (consultas[i].getCrmMedico() == verificarMedico);
             pacienteJaTemConsulta = (consultas[i].getCpfPaciente() == verificarPaciente);
 
@@ -215,7 +212,6 @@ void Consultorio::cadastrarConsulta(Consulta c)
 
 void Consultorio::removerConsulta(string cpfPaciente,string dataConsulta)
 {
-    // Verifica se o paciente tem consultas
     vector<Consulta> consultasDoPaciente;
     for (int i=0; i<consultas.size();i++)
     {
@@ -230,7 +226,6 @@ void Consultorio::removerConsulta(string cpfPaciente,string dataConsulta)
         throw ExcecaoConsultaInexistente(cpfPaciente, dataConsulta);
     }
 
-    // Mostra as consultas do paciente
     cout << "Consultas do paciente no dia: " << endl;
     for (int i=0; i<consultasDoPaciente.size();i++)
     {
@@ -239,12 +234,10 @@ void Consultorio::removerConsulta(string cpfPaciente,string dataConsulta)
         cout << "--------------------------------" << endl;
     }
 
-    // Pede a hora da consulta
     string horaConsulta;
     cout << "Digite a hora da consulta que deseja remover (HH:MM): ";
     getline(cin, horaConsulta);
 
-    // Remove a consulta se existir
     bool consultaEncontrada = false;
     for (auto it = consultas.begin(); it != consultas.end(); ++it)
     {
