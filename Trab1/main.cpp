@@ -14,8 +14,8 @@ int main()
     Paciente pacienteNulo = Paciente();
     int opcao;
     // Habib essa parte é para auxiliar nos testes de forma mais rapida como foi dito no relatório
-     Medico medico1 = Medico(Pessoa("Dr. João", 'M', "Rua A", "12345678901", 12345, 1), 123, "Cardiologia");
-     Medico medico2 = Medico(Pessoa("Dra. Maria", 'F', "Rua B", "98765432109", 54321, 2), 321, "Ortopedia");
+    Medico medico1 = Medico(Pessoa("Dr. João", 'M', "Rua A", "12345678901", 12345, 1), 123, "Cardiologia");
+    Medico medico2 = Medico(Pessoa("Dra. Maria", 'F', "Rua B", "98765432109", 54321, 2), 321, "Ortopedia");
 
     Paciente paciente1 = Paciente(Pessoa("João da Silva", 'M', "Rua X", "11122233344", 9999, 1234), "Dor de cabeça", "Aspirina");
     Paciente paciente2 = Paciente(Pessoa("Maria da Silva", 'F', "Rua Y", "44433322211", 8888, 4321), "Dor nas costas", "Relaxante muscular");
@@ -56,14 +56,19 @@ int main()
         {
         case 1:
         {
+
             int crmMedico;
             string especialidadeMedico;
 
             Pessoa cadastroPessoa = consultorio.cadastrarPessoa();
             cout << "Digite o CRM: ";
             cin >> crmMedico;
-
-
+            cin.ignore();
+            cout << "Digite a especialidade do médico: ";
+            getline(cin, especialidadeMedico);
+            Medico novoMedico = Medico(cadastroPessoa, crmMedico, especialidadeMedico);
+            consultorio.cadastrarMedico(novoMedico);
+            break;
         }
         case 2:
         {
